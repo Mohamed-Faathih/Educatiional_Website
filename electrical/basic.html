@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElectroFuse Tech</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<header>
+<hr>
+<h1>
+<div id="body1">
+  <img src="images/logo.jpg" alt="logo" title="ElectroFuse Tech-Ignite Your Engineering Potential" id="logo">
+</h1>
+<p class="spaced-paragraph"></p>
+  <nav>
+      <ul class="nav-list">
+        <li><a href="../index.html">HOME</a></li>
+        <li>
+      <a href="#">Electrical concepts</a>
+      <ul class="dropdown">
+        <li><a href="basic.html">Basic Concepts and Fundamentals</a></li>
+        <li><a href="machine.html">Electrical Machines</a></li>
+        <li><a href="Control.html">Control Systems</a></li>
+        <li><a href="Systems.html">Power Systems</a></li>
+        <li><a href="Power.html">Power Electronics</a></li>
+        <li><a href="Renewable.html">Renewable Energy</a></li>
+        <li><a href="Measurements.html">Electrical Measurements</a></li>
+        <li><a href="Safety.html">Electrical Safety and Standards</a></li>
+      </ul>
+    </li>
+    <li>
+    <a href="#">Electronic concepts</a>
+    <ul class="dropdown">
+      <li><a href="../electronic/basics.html">Electronic Components and Devices</a></li>
+      <li><a href="../electronic/basics.html">Analog Circuits</a></li>
+      <li><a href="../electronic/basics.html">Digital Circuits</a></li>
+      <li><a href="../electronic/basics.html">Embedded Systems</a></li>
+      <li><a href="../electronic/basics.html">Signal Processing</a></li>
+      <li><a href="../electronic/basics.html">Communication Systems</a></li>
+      <li><a href="../electronic/basics.html">Electronics Design Tools</a></li>
+      <li><a href="../electronic/basics.html">Electronic facts</a></li>
+    </ul>
+  </li>
+        <li><a href="Resources.html">Resource</a></li>
+        <li><a href="About.html">About Us</a></li>
+      </ul>
+    </nav>
+
+<h1 class="quality-matters">---> "Ignite Your Engineering Potential"</h1>
+<hr>
+
+<h1>Ohm's Law</h1>
+<p>Ohm's Law describes the relationship between voltage (V), current (I), and resistance (R). It states that the current flowing through a conductor between two points is directly proportional to the voltage across the two points and inversely proportional to the resistance between them. The formula is given by:</p>
+<p><strong>V = I × R</strong></p>
+<div class="calculator">
+    <label for="voltage">Voltage (V):</label>
+    <input type="number" id="voltage">
+    <label for="current">Current (I):</label>
+    <input type="number" id="current">
+    <label for="resistance">Resistance (R):</label>
+    <input type="number" id="resistance">
+    <button onclick="calculateOhmsLaw()">Calculate</button>
+    <p id="result1"></p>
+</div>
+<hr>
+
+<h1>Resistor</h1>
+<p>A resistor is an electrical component that limits or regulates the flow of electrical current in an electronic circuit. Resistors can also be used to provide a specific voltage for an active device such as a transistor. They are one of the most common components used in electronic circuits. Resistors come in a variety of shapes and sizes, but they all function in the same basic way. The value of a resistor is measured in ohms (Ω) and is usually indicated by a color code on the body of the resistor.</p>
+<p>Use the color bands on a resistor to determine its resistance value. Select the colors for each band to calculate the resistance.</p>
+<div class="calculator">
+    <label for="band1">Band 1:</label>
+    <select id="band1">
+        <option value="0">Black</option>
+        <option value="1">Brown</option>
+        <option value="2">Red</option>
+        <option value="3">Orange</option>
+        <option value="4">Yellow</option>
+        <option value="5">Green</option>
+        <option value="6">Blue</option>
+        <option value="7">Violet</option>
+        <option value="8">Gray</option>
+        <option value="9">White</option>
+    </select>
+
+    <label for="band2">Band 2:</label>
+    <select id="band2">
+        <option value="0">Black</option>
+        <option value="1">Brown</option>
+        <option value="2">Red</option>
+        <option value="3">Orange</option>
+        <option value="4">Yellow</option>
+        <option value="5">Green</option>
+        <option value="6">Blue</option>
+        <option value="7">Violet</option>
+        <option value="8">Gray</option>
+        <option value="9">White</option>
+    </select>
+
+    <label for="multiplier">Multiplier:</label>
+    <select id="multiplier">
+        <option value="1">Black (x1)</option>
+        <option value="10">Brown (x10)</option>
+        <option value="100">Red (x100)</option>
+        <option value="1000">Orange (x1,000)</option>
+        <option value="10000">Yellow (x10,000)</option>
+        <option value="100000">Green (x100,000)</option>
+        <option value="1000000">Blue (x1,000,000)</option>
+        <option value="0.1">Gold (x0.1)</option>
+        <option value="0.01">Silver (x0.01)</option>
+    </select>
+
+        <button onclick="calculateResistance()">Calculate</button>
+        <p id="result2"></p>
+    </div>
+
+<hr>
+    <section id="inductor">
+      <h2>Inductor</h2>
+      <p>An inductor is a passive electronic component that stores energy in a magnetic field when current flows through it.</p>
+      <p>The formula for the voltage across an inductor is V = L * dI/dt.</p>
+      <div class="calculator">
+        <label for="inductance">Inductance (L, in Henrys):</label>
+        <input type="number" id="inductance">
+        <label for="current_change">Rate of Current Change (dI/dt, in Amperes/second):</label>
+        <input type="number" id="current_change">
+        <button onclick="calculateInductorVoltage()">Calculate Voltage</button>
+        <p id="inductor_result"></p>
+      </div>
+    </section>
+<hr>
+    <!-- Capacitor Section -->
+    <section id="capacitor">
+      <h2>Capacitor</h2>
+      <p>A capacitor is a passive electronic component that stores electrical energy in an electric field.</p>
+      <p>Formula: Q = C * V</p>
+      <div class="calculator">
+        <label for="capacitance">Capacitance (C, in Farads):</label>
+        <input type="number" id="capacitance">
+        <label for="voltage_cap">Voltage (V, in Volts):</label>
+        <input type="number" id="voltage_cap">
+        <button onclick="calculateCapacitorCharge()">Calculate Charge</button>
+        <p id="capacitor_result"></p>
+      </div>
+    </section>
+<hr>
+    <!-- Joule's Law Section -->
+    <section id="joules_law">
+      <h2>Joule's Law</h2>
+      <p>Joule's Law describes the relationship between power dissipation, current, and resistance in a resistor.</p>
+      <p>Formula: <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>P</mi> <mo>=</mo> <msup>
+    <mi>I</mi>
+    <mn>2</mn>
+  </msup> <mo>&#x2217;</mo> <mi>R</mi>
+</math></p>
+
+      <div class="calculator">
+        <label for="current_joule">Current (I, in Amperes):</label>
+        <input type="number" id="current_joule">
+        <label for="resistance_joule">Resistance (R, in Ohms):</label>
+        <input type="number" id="resistance_joule">
+        <button onclick="calculateJoulesLaw()">Calculate Power</button>
+        <p id="joule_result"></p>
+      </div>
+    </section>
+<hr>
+    <!-- Power Factor Section -->
+    <section id="power_factor">
+      <h2>Power Factor</h2>
+      <p>Power factor is a measure of how effectively electrical power is being used.</p>
+      <p>Formula: <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>Power Factor</mi> <mo>=</mo> <mfrac>
+    <mi>P</mi>
+    <mi>S</mi>
+  </mfrac> <mo>=</mo> <mi>cos</mi>
+  <mo>(</mo> <mi>φ</mi> <mo>)</mo>
+</math></p>
+      <div class="calculator">
+        <label for="real_power">Real Power (P, in Watts):</label>
+        <input type="number" id="real_power">
+        <label for="apparent_power">Apparent Power (S, in Volt-Amperes):</label>
+        <input type="number" id="apparent_power">
+        <button onclick="calculatePowerFactor()">Calculate Power Factor</button>
+        <p id="power_factor_result"></p>
+      </div>
+    </section>
+<hr>
+<section id="star_delta_conversion">
+  <h2>Star to Delta / Delta to Star Conversion</h2>
+  <p>This section calculates the equivalent resistances between Star and Delta circuits.</p>
+
+  <label for="conversionType">Select Conversion Type:</label>
+  <select id="conversionType">
+    <option value="starToDelta">Star to Delta</option>
+    <option value="deltaToStar">Delta to Star</option>
+  </select>
+
+  <div id="starToDeltaInputs">
+    <p>Star to Delta Conversion Formulas:</p>
+       <img src="images/star_to_delta_formula.jpg" alt="Star Circuit Diagram" style="width: 500px;height: auto;"/>
+        <img src="images/star_to_delta.jpg" alt="Star Circuit Diagram" style="width: 500px;height: auto;"/>
+
+    <div class="calculator">
+      <label for="resistance1_star">Resistance R1 (Ω):</label>
+      <input type="number" id="resistance1_star">
+      <label for="resistance2_star">Resistance R2 (Ω):</label>
+      <input type="number" id="resistance2_star">
+      <label for="resistance3_star">Resistance R3 (Ω):</label>
+      <input type="number" id="resistance3_star">
+      <button onclick="calculateStarToDelta()">Convert to Delta</button>
+      <p id="star_delta_conversion_result"></p>
+    </div>
+  </div>
+
+  <div id="deltaToStarInputs" style="display: none;">
+    <p>Delta to Star Conversion Formulas:</p>
+       <img src="images/delta_to_star_formula.jpg" alt="Star Circuit Diagram" style="width: 500px;height: auto;"/>
+        <img src="images/delta_to_star.jpg" alt="Star Circuit Diagram" style="width: 500px;height: auto;"/>
+    <div class="calculator">
+      <label for="resistance12_delta">Resistance R12 (Ω):</label>
+      <input type="number" id="resistance12_delta">
+      <label for="resistance23_delta">Resistance R23 (Ω):</label>
+      <input type="number" id="resistance23_delta">
+      <label for="resistance31_delta">Resistance R31 (Ω):</label>
+      <input type="number" id="resistance31_delta">
+      <button onclick="calculateDeltaToStar()">Convert to Star</button>
+      <p id="delta_star_conversion_result"></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('conversionType').addEventListener('change', function() {
+      const type = this.value;
+      document.getElementById('starToDeltaInputs').style.display = type === 'starToDelta' ? 'block' : 'none';
+      document.getElementById('deltaToStarInputs').style.display = type === 'deltaToStar' ? 'block' : 'none';
+    });
+
+    function calculateStarToDelta() {
+      // Retrieve values
+      const R1 = parseFloat(document.getElementById('resistance1_star').value);
+      const R2 = parseFloat(document.getElementById('resistance2_star').value);
+      const R3 = parseFloat(document.getElementById('resistance3_star').value);
+
+      // Calculate Delta resistances
+      const R12 = (R1 * R2 + R2 * R3 + R3 * R1) / R3;
+      const R23 = (R1 * R2 + R2 * R3 + R3 * R1) / R1;
+      const R31 = (R1 * R2 + R2 * R3 + R3 * R1) / R2;
+
+      // Display results
+      document.getElementById('star_delta_conversion_result').innerHTML = `R12: ${R12.toFixed(2)} Ω, R23: ${R23.toFixed(2)} Ω, R31: ${R31.toFixed(2)} Ω`;
+    }
+
+    function calculateDeltaToStar() {
+      // Retrieve values
+      const R12 = parseFloat(document.getElementById('resistance12_delta').value);
+      const R23 = parseFloat(document.getElementById('resistance23_delta').value);
+      const R31 = parseFloat(document.getElementById('resistance31_delta').value);
+
+      // Calculate Star resistances
+      const R1 = (R12 * R31) / (R12 + R23 + R31);
+      const R2 = (R12 * R23) / (R12 + R23 + R31);
+      const R3 = (R23 * R31) / (R12 + R23 + R31);
+
+      // Display results
+      document.getElementById('delta_star_conversion_result').innerHTML = `R1: ${R1.toFixed(2)} Ω, R2: ${R2.toFixed(2)} Ω, R3: ${R3.toFixed(2)} Ω`;
+    }
+  </script>
+</section>
+
+
+<script src="script.js"></script>
+<footer>
+    <p>Copyright © 2024 ElectroFuse Tech. All rights reserved.</p>
+</footer>
+</body>
+</html>

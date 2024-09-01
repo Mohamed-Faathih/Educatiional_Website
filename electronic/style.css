@@ -1,0 +1,190 @@
+.centered span {
+  position: absolute;
+  left: 100px;
+  top: 500px;
+  color: white;
+font-size:1em
+}
+body {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8) 50%, rgba(211, 211, 211, 0.8));
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}header {
+  background-color: #ffffff; /* White background */
+}
+.quality-matters {
+  position: absolute;
+  left: 50%;
+  top: 35px;
+  transform: translateX(-50%);
+  font-family: 'Comic Sans MS', sans-serif;
+  font-size: 2em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+}
+
+@media (max-width: 1200px) 
+{
+  .quality-matters 
+{
+    font-size: 1.4em;
+  }
+  #logo {
+    max-width: 300px;
+  }
+ .centered span {
+    font-size: 0.2em; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .quality-matters {
+    font-size: 1.2em;
+top:25px;
+    /* Adjusted the left position */
+  }
+  #logo {
+    max-width: 190px;
+  }
+ .centered span {
+top:250px;
+    font-size: 0.2em; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .quality-matters {
+    font-size: 1.0em;
+    left: 60%; /* Adjusted the left position */
+  }
+  #logo {
+    max-width: 200px;
+  }
+ .centered span {
+    font-size: 0.2em; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .quality-matters {
+    font-size: 0.8em;
+    top:25px;
+    left: 65%; /* Adjusted the left position */
+  }
+  #logo {
+    max-width: 150px;
+  }
+ .centered span {
+    font-size: 0.5em; /* Adjust font size for smaller screens */
+    top: 250px;
+    left:10px;
+  }
+}
+
+.spaced-paragraph {
+  margin-bottom: 100px; /* Adjusted for 3 lines of spacing */
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 10px;
+  background-color: white;
+}
+
+.nav-list li {
+  margin: 0;
+}
+
+.nav-list a {
+  color: black;
+  background-color: white;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.nav-list a:hover {
+  background-color: black;
+  color: white;
+}
+ footer {
+      background-color: #f2f2f2; /* Light gray background */
+      text-align: center; /* Center align text */
+      padding: 20px 0; /* Add padding for spacing */
+      clear: both; /* Ensure footer is cleared properly */
+      border-top: 1px solid #ccc; /* Top border */
+      border-bottom: 1px solid #ccc; /* Bottom border */
+    }.query-section {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+}
+
+.query-section h2 {
+        top:700px;
+}
+
+.query-section input[type="text"] {
+    width: 60%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.query-section input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.query-section input[type="submit"]:hover {
+    background-color: #45a049;
+}
+ .dropdown {
+    display: none;
+    position: absolute;
+    background-color: grey; /* Dropdown background color */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Shadow for dropdown */
+    z-index: 1;
+
+  }
+
+  .dropdown li {
+    display: block;
+  }
+
+  .nav-list li:hover .dropdown {
+    display: block; /* Show dropdown when hovering over parent li */
+  }
+
+  .dropdown li a {
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown li a:hover {
+    background-color: #555; /* Darker background color when hovering over dropdown item */
+  }

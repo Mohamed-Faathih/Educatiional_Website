@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElectroFuse Tech</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<header>
+  <hr>
+  <div id="body1">
+    <h1>
+      <img src="images/logo.jpg" alt="logo" title="ElectroFuse Tech-Ignite Your Engineering Potential" id="logo">
+    </h1>
+    <p class="spaced-paragraph"></p>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="../index.html">HOME</a></li>
+        <li>
+          <a href="#">Electrical concepts</a>
+          <ul class="dropdown">
+            <li><a href="basic.html">Basic Concepts and Fundamentals</a></li>
+            <li><a href="machine.html">Electrical Machines</a></li>
+            <li><a href="Control.html">Control Systems</a></li>
+            <li><a href="Systems.html">Power Systems</a></li>
+            <li><a href="Power.html">Power Electronics</a></li>
+            <li><a href="Renewable.html">Renewable Energy</a></li>
+            <li><a href="Measurements.html">Electrical Measurements</a></li>
+            <li><a href="Safety.html">Electrical Safety and Standards</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Electronic concepts</a>
+          <ul class="dropdown">
+            <li><a href="../electronic/basics.html">Electronic Components and Devices</a></li>
+            <li><a href="../electronic/basics.html">Analog Circuits</a></li>
+            <li><a href="../electronic/basics.html">Digital Circuits</a></li>
+            <li><a href="../electronic/basics.html">Embedded Systems</a></li>
+            <li><a href="../electronic/basics.html">Signal Processing</a></li>
+            <li><a href="../electronic/basics.html">Communication Systems</a></li>
+            <li><a href="../electronic/basics.html">Electronics Design Tools</a></li>
+            <li><a href="../electronic/basics.html">Electronic facts</a></li>
+          </ul>
+        </li>
+        <li><a href="Resources.html">Resource</a></li>
+        <li><a href="About.html">About Us</a></li>
+      </ul>
+    </nav>
+
+    <h1 class="quality-matters">---> "Ignite Your Engineering Potential"</h1>
+    <hr>
+  </div>
+
+
+<main>
+  <section id="dc-motor">
+    <h2>DC Motor Simulation</h2>
+    <div class="motor-container">
+      <div id="motor" class="motor">
+        <p id="motor-speed">Speed: <span id="speed-value">0</span> RPM</p>
+        <button onclick="increaseSpeed()">Increase Speed</button>
+        <button onclick="decreaseSpeed()">Decrease Speed</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="transformer">
+    <h2>Transformer Simulation</h2>
+    <div class="transformer-container">
+      <div id="primary-coil">
+        <h3>Primary Coil</h3>
+        <label for="primary-voltage">Input Voltage (V):</label>
+        <input type="number" id="primary-voltage" step="0.1" value="230">
+        <label for="primary-turns">Number of Turns:</label>
+        <input type="number" id="primary-turns" value="100">
+      </div>
+
+      <div id="secondary-coil">
+        <h3>Secondary Coil</h3>
+        <label for="secondary-voltage">Output Voltage (V):</label>
+        <input type="number" id="secondary-voltage" readonly>
+        <label for="secondary-turns">Number of Turns:</label>
+        <input type="number" id="secondary-turns">
+      </div>
+
+      <button onclick="calculateSecondaryVoltage()">Calculate Secondary Voltage</button>
+    </div>
+  </section>
+  <section id="emf">
+     <div class="container">
+       <h2>Electromagnetic Induction (EMF)</h2>
+       <div class="content">
+         <p>Electromagnetic induction is the phenomenon where a voltage (EMF) is induced in a conductor when it moves through a magnetic field or when there is a change in magnetic flux through the conductor. This is the basis for generating electricity in generators and motors.</p>
+         <p>In the simulation below, you can see how a voltage (EMF) is induced when a magnet moves through a coil.</p>
+         <div class="emf-simulation">
+           <div class="coil">
+             <div class="magnet"></div>
+           </div>
+           <p id="emf-value">Induced EMF: <span id="emf-output">0</span> V</p>
+           <button onclick="moveMagnet()">Move Magnet</button>
+         </div>
+       </div>
+     </div>
+   </section>
+
+
+<script src="script.js"></script>
+
+<footer>
+  <p>Copyright © 2024 ElectroFuse Tech. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
