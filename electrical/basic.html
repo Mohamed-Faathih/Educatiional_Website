@@ -4,9 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ElectroFuse Tech</title>
+
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+ <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
 </head>
 <body>
+    <script src="script.js"></script>
 <header>
 <hr>
 <h1>
@@ -195,12 +200,19 @@
   <select id="conversionType">
     <option value="starToDelta">Star to Delta</option>
     <option value="deltaToStar">Delta to Star</option>
+    <button onclick="calculateStarToDelta()">Convert to Delta</button>
+<button onclick="calculateDeltaToStar()">Convert to Star</button>
+
   </select>
 
   <div id="starToDeltaInputs">
     <p>Star to Delta Conversion Formulas:</p>
-       <img src="images/star_to_delta_formula.jpg" alt="Star Circuit Diagram" style="width: 500px;height: auto;"/>
-        <img src="images/star_to_delta.jpg" alt="Star Circuit Diagram" style="width: 500px;height: auto;"/>
+    <p> \( R_{12} = {(}{R_1 + R_2}{)}+\frac{R_1 \times R_2}{R_3} \);
+                   \( R_{23} = {(}{R_2 + R_3}{)}+\frac{R_2 \times R_3}{R_1} \);
+                         \( R_{31} = {(}{R_3 + R_1}{)}+\frac{R_3 \times R_1}{R_2} \).</p>
+   <div style="text-align: center;">
+    <img src="images/star_to_delta.jpg" alt="Star to Delta Circuit Diagram" style="width: 500px; height: auto;"/>
+  </div>
 
     <div class="calculator">
       <label for="resistance1_star">Resistance R1 (Ω):</label>
@@ -216,61 +228,313 @@
 
   <div id="deltaToStarInputs" style="display: none;">
     <p>Delta to Star Conversion Formulas:</p>
-       <img src="images/delta_to_star_formula.jpg" alt="Star Circuit Diagram" style="width: 500px;height: auto;"/>
-        <img src="images/delta_to_star.jpg" alt="Star Circuit Diagram" style="width: 500px;height: auto;"/>
+    <p>
+      \( R_{12} = \frac{R_1 \times R_2}{R_1 + R_2 + R_3} \);
+    \( R_{23} = \frac{R_2 \times R_3}{R_1 + R_2 + R_3} \);
+  \( R_{31} = \frac{R_3 \times R_1}{R_1 + R_2 + R_3} \);
+</p>
+     <div style="text-align: center;">
+    <img src="images/delta_to_star.jpg" alt="Delta to Star Circuit Diagram" style="width: 500px; height: auto;"/>
+  </div>
     <div class="calculator">
-      <label for="resistance12_delta">Resistance R12 (Ω):</label>
+      <label for="resistance12_delta">Resistance R1 (Ω):</label>
       <input type="number" id="resistance12_delta">
-      <label for="resistance23_delta">Resistance R23 (Ω):</label>
+      <label for="resistance23_delta">Resistance R2 (Ω):</label>
       <input type="number" id="resistance23_delta">
-      <label for="resistance31_delta">Resistance R31 (Ω):</label>
+      <label for="resistance31_delta">Resistance R3 (Ω):</label>
       <input type="number" id="resistance31_delta">
       <button onclick="calculateDeltaToStar()">Convert to Star</button>
       <p id="delta_star_conversion_result"></p>
     </div>
   </div>
-
-  <script>
-    document.getElementById('conversionType').addEventListener('change', function() {
-      const type = this.value;
-      document.getElementById('starToDeltaInputs').style.display = type === 'starToDelta' ? 'block' : 'none';
-      document.getElementById('deltaToStarInputs').style.display = type === 'deltaToStar' ? 'block' : 'none';
-    });
-
-    function calculateStarToDelta() {
-      // Retrieve values
-      const R1 = parseFloat(document.getElementById('resistance1_star').value);
-      const R2 = parseFloat(document.getElementById('resistance2_star').value);
-      const R3 = parseFloat(document.getElementById('resistance3_star').value);
-
-      // Calculate Delta resistances
-      const R12 = (R1 * R2 + R2 * R3 + R3 * R1) / R3;
-      const R23 = (R1 * R2 + R2 * R3 + R3 * R1) / R1;
-      const R31 = (R1 * R2 + R2 * R3 + R3 * R1) / R2;
-
-      // Display results
-      document.getElementById('star_delta_conversion_result').innerHTML = `R12: ${R12.toFixed(2)} Ω, R23: ${R23.toFixed(2)} Ω, R31: ${R31.toFixed(2)} Ω`;
-    }
-
-    function calculateDeltaToStar() {
-      // Retrieve values
-      const R12 = parseFloat(document.getElementById('resistance12_delta').value);
-      const R23 = parseFloat(document.getElementById('resistance23_delta').value);
-      const R31 = parseFloat(document.getElementById('resistance31_delta').value);
-
-      // Calculate Star resistances
-      const R1 = (R12 * R31) / (R12 + R23 + R31);
-      const R2 = (R12 * R23) / (R12 + R23 + R31);
-      const R3 = (R23 * R31) / (R12 + R23 + R31);
-
-      // Display results
-      document.getElementById('delta_star_conversion_result').innerHTML = `R1: ${R1.toFixed(2)} Ω, R2: ${R2.toFixed(2)} Ω, R3: ${R3.toFixed(2)} Ω`;
-    }
-  </script>
 </section>
 
 
-<script src="script.js"></script>
+
+<hr>
+<section id="division_rules">
+  <h2>Current Division / Voltage Division Rule</h2>
+  <p>This section calculates equivalent currents and voltages using the Current Division Rule and Voltage Division Rule.</p>
+
+  <label for="divisionType">Select Rule Type:</label>
+  <select id="divisionType">
+    <option value="currentDivision">Current Division Rule</option>
+    <option value="voltageDivision">Voltage Division Rule</option>
+  </select>
+
+  <div id="currentDivisionInputs">
+    <p>Current Division Rule Formula:</p>
+    <p>
+      \( I_1 = \frac{I \times R_2}{R_1 + R_2} \);
+      \( I_2 = \frac{I \times R_1}{R_1 + R_2} \)
+
+    <div class="calculator">
+      <label for="total_current">Total Current I (A):</label>
+      <input type="number" id="total_current">
+      <label for="resistance1_current">Resistance R1 (Ω):</label>
+      <input type="number" id="resistance1_current">
+      <label for="resistance2_current">Resistance R2 (Ω):</label>
+      <input type="number" id="resistance2_current">
+      <button onclick="calculateCurrentDivision()">Calculate Current</button>
+      <p id="current_division_result"></p>
+    </div>
+  </div>
+
+  <div id="voltageDivisionInputs" style="display: none;">
+    <p>Voltage Division Rule Formula:</p>
+    <p>
+      \( V_1 = \frac{V \times R_1}{R_1 + R_2} \);
+      \( V_2 = \frac{V \times R_2}{R_1 + R_2} \)
+    </p>
+    <div class="calculator">
+      <label for="total_voltage">Total Voltage V (V):</label>
+      <input type="number" id="total_voltage">
+      <label for="resistance1_voltage">Resistance R1 (Ω):</label>
+      <input type="number" id="resistance1_voltage">
+      <label for="resistance2_voltage">Resistance R2 (Ω):</label>
+      <input type="number" id="resistance2_voltage">
+      <button onclick="calculateVoltageDivision()">Calculate Voltage</button>
+      <p id="voltage_division_result"></p>
+    </div>
+  </div>
+</section>
+<hr>
+
+<section id="faradays_law">
+  <h2>Faraday's Law of Electromagnetic Induction</h2>
+  <p>Faraday's Law calculates the induced electromotive force (EMF) in a circuit due to a change in magnetic flux.</p>
+
+  <div id="faradaysLawInputs">
+    <p>Faraday's Law Formula:</p>
+    <p>
+      \( \text{EMF} = -N \frac{d\Phi}{dt} \)
+    </p>
+
+    <div class="calculator">
+      <label for="num_turns">Number of Turns (N):</label>
+      <input type="number" id="num_turns" step="1" min="1">
+
+      <label for="flux_change">Change in Magnetic Flux (Φ) (Weber):</label>
+      <input type="number" id="flux_change" step="0.01">
+
+      <label for="time_interval">Time Interval (t) (s):</label>
+      <input type="number" id="time_interval" step="0.01">
+
+      <button onclick="calculateFaradaysLaw()">Calculate EMF</button>
+      <p id="faradays_law_result"></p>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- MMF (Magnetomotive Force) -->
+<section id="mmf">
+  <h2>Magnetomotive Force (MMF)</h2>
+  <p>MMF is a measure of the magnetic potential difference in a magnetic circuit.</p>
+  <p>Formula: <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mi>MMF</mi> <mo>=</mo> <mi>H</mi> <mo>&#8290;</mo> <mi>l</mi>
+  </math></p>
+  <div class="calculator">
+    <label for="magnetic_field_strength">Magnetic Field Strength (H, in A/m):</label>
+    <input type="number" id="magnetic_field_strength">
+    <label for="length_of_magnetic_path">Length of Magnetic Path (l, in meters):</label>
+    <input type="number" id="length_of_magnetic_path">
+    <button onclick="calculateMMF()">Calculate MMF</button>
+    <p id="mmf_result"></p>
+  </div>
+</section>
+<hr>
+<!-- Reluctance -->
+<section id="reluctance">
+  <h2>Reluctance</h2>
+  <p>Reluctance is a measure of the opposition to the magnetic flux in a magnetic circuit.</p>
+  <p>Formula:</p>
+  <p>
+        \(
+        \mathcal{R} = \frac{l}{\mu A}
+        \)
+      </p>
+  <div class="calculator">
+    <label for="length_of_magnetic_path">Length of Magnetic Path (l, in meters):</label>
+    <input type="number" id="length_of_magnetic_path_reluctance">
+    <label for="magnetic_permeability">Magnetic Permeability (μ, in H/m):</label>
+    <input type="number" id="magnetic_permeability">
+    <label for="cross_sectional_area">Cross-sectional Area (A, in square meters):</label>
+    <input type="number" id="cross_sectional_area">
+    <button onclick="calculateReluctance()">Calculate Reluctance</button>
+    <p id="reluctance_result"></p>
+  </div>
+</section>
+<hr>
+<!-- Ampere's Law -->
+<section id="amperes_law">
+  <h2>Ampere's Law</h2>
+  <p>Ampere's Law relates the integrated magnetic field around a closed loop to the electric current passing through the loop.</p>
+  <p>Formula: <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mo>&#8747;</mo> <mi>B</mi> <mo>&#8290;</mo> <mi>dl</mi> <mo>=</mo> <mi>&#956;</mi> <mo>&#8290;</mo> <mi>I</mi>
+  </math></p>
+  <div class="calculator">
+    <label for="magnetic_flux_density">Magnetic Flux Density (B, in T):</label>
+    <input type="number" id="magnetic_flux_density">
+    <label for="length_of_loop">Length of Loop (l, in meters):</label>
+    <input type="number" id="length_of_loop">
+    <label for="current">Current (I, in Amperes):</label>
+    <input type="number" id="current">
+    <button onclick="calculateAmperesLaw()">Calculate Ampere's Law</button>
+    <p id="amperes_law_result"></p>
+  </div>
+</section>
+<hr>
+<!-- Biot-Savart Law -->
+<section id="biot_savart_law">
+  <h2>Biot-Savart Law</h2>
+  <p>Biot-Savart Law describes the magnetic field produced by a current-carrying conductor.</p>
+  <p>Formula:</p>
+  <p>
+          \(
+          \mathbf{B} = \frac{\mu_0 I}{4 \pi} \int \frac{d\mathbf{l} \times \mathbf{r}}{r^3}
+          \)
+        </p>
+  <div class="calculator">
+    <label for="current">Current (I, in Amperes):</label>
+    <input type="number" id="current_biot_savart">
+    <label for="length_of_conductor">Length of Conductor (dl, in meters):</label>
+    <input type="number" id="length_of_conductor">
+    <label for="distance">Distance (r, in meters):</label>
+    <input type="number" id="distance">
+    <label for="angle">Angle (θ, in degrees):</label>
+    <input type="number" id="angle">
+    <button onclick="calculateBiotSavartLaw()">Calculate Biot-Savart Law</button>
+    <p id="biot_savart_law_result"></p>
+  </div>
+</section>
+<hr>
+<!-- Magnetic Permeability -->
+<section id="magnetic_permeability">
+  <h2>Magnetic Permeability</h2>
+  <p>Magnetic permeability is the measure of how much a material responds to a magnetic field.</p>
+  <p>Formula: <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mi>μ</mi> <mo>=</mo> <mfrac>
+      <mi>B</mi>
+      <mi>H</mi>
+    </mfrac>
+  </math></p>
+  <div class="calculator">
+    <label for="magnetic_flux_density">Magnetic Flux Density (B, in T):</label>
+    <input type="number" id="magnetic_flux_density_permeability">
+    <label for="magnetic_field_strength">Magnetic Field Strength (H, in A/m):</label>
+    <input type="number" id="magnetic_field_strength_permeability">
+    <button onclick="calculateMagneticPermeability()">Calculate Magnetic Permeability</button>
+    <p id="magnetic_permeability_result"></p>
+  </div>
+</section>
+<hr>
+<!-- Magnetic Susceptibility -->
+<section id="magnetic_susceptibility">
+  <h2>Magnetic Susceptibility</h2>
+  <p>Magnetic susceptibility measures how much a material will become magnetized in an applied magnetic field.</p>
+  <p>Formula:</p>
+        <p>
+          \(
+          \chi = \frac{M}{H}
+          \)
+        </p>
+  <div class="calculator">
+    <label for="permeability">Permeability (μ, in H/m):</label>
+    <input type="number" id="permeability">
+    <label for="permeability_of_free_space">Permeability of Free Space (μ₀, in H/m):</label>
+    <input type="number" id="permeability_of_free_space">
+    <button onclick="calculateMagneticSusceptibility()">Calculate Magnetic Susceptibility</button>
+    <p id="magnetic_susceptibility_result"></p>
+  </div>
+</section>
+<hr>
+<!-- Form Factor -->
+<section id="form_factor">
+  <h2>Form Factor</h2>
+  <p>Form factor is the ratio of the RMS value to the average value of an alternating current waveform.</p>
+  <p>Formula:</p>
+        <p>
+          \(
+          \text{Form Factor} = \frac{I_{\text{RMS}}}{I_{\text{average}}}
+          \)
+        </p>
+  <div class="calculator">
+    <label for="rms_current">RMS Current (I<sub>rms</sub>, in Amperes):</label>
+    <input type="number" id="rms_current">
+    <label for="average_current">Average Current (I<sub>avg</sub>, in Amperes):</label>
+    <input type="number" id="average_current">
+    <button onclick="calculateFormFactor()">Calculate Form Factor</button>
+    <p id="form_factor_result"></p>
+  </div>
+</section>
+<hr>
+<!-- Peak Factor -->
+<section id="peak_factor">
+  <h2>Peak Factor</h2>
+  <p>Peak factor is the ratio of the peak value to the RMS value of a waveform.</p>
+  <p>Formula:</p>
+        <p>
+          \(
+          \text{Peak Factor} = \frac{I_{\text{peak}}}{I_{\text{RMS}}}
+          \)
+        </p>
+  <div class="calculator">
+    <label for="peak_current">Peak Current (I<sub>peak</sub>, in Amperes):</label>
+    <input type="number" id="peak_current">
+    <label for="rms_current">RMS Current (I<sub>rms</sub>, in Amperes):</label>
+    <input type="number" id="rms_current_peak">
+    <button onclick="calculatePeakFactor()">Calculate Peak Factor</button>
+    <p id="peak_factor_result"></p>
+  </div>
+</section>
+<hr>
+<!-- Crest Factor -->
+<section id="crest_factor">
+  <h2>Crest Factor</h2>
+  <p>Crest factor is the ratio of the peak value to the RMS value of a waveform, similar to the peak factor but used in a different context.</p>
+  <p>Formula:</p>
+        <p>
+          \(
+          \text{Crest Factor} = \frac{I_{\text{peak}}}{I_{\text{RMS}}}
+          \)
+        </p>
+  <div class="calculator">
+    <label for="peak_current">Peak Current (I<sub>peak</sub>, in Amperes):</label>
+    <input type="number" id="peak_current_crest">
+    <label for="rms_current">RMS Current (I<sub>rms</sub>, in Amperes):</label>
+    <input type="number" id="rms_current_crest">
+    <button onclick="calculateCrestFactor()">Calculate Crest Factor</button>
+    <p id="crest_factor_result"></p>
+  </div>
+</section>
+<hr>
+<!-- Magnetic vs Electric Fields -->
+<section id="magnetic_vs_electric_fields">
+  <h2>Difference Between Magnetic and Electric Fields</h2>
+  <p>Magnetic fields and electric fields are fundamental aspects of electromagnetism, but they have different properties and effects.</p>
+  <ul>
+    <li><strong>Electric Field:</strong> Created by electric charges. Its strength is given by <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>E</mi> <mo>=</mo> <mfrac><mi>F</mi><mi>q</mi></mfrac></math>.</li>
+    <li><strong>Magnetic Field:</strong> Created by moving charges (current). Its strength is given by <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi> <mo>=</mo> <mfrac><mi>F</mi><mi>qv</mi></mfrac></math>.</li>
+  </ul>
+  <div class="calculator">
+    <!-- No specific calculator for this section, informational only -->
+  </div>
+</section>
+
+<script>
+document.getElementById('conversionType').addEventListener('change', function() {
+  const type = this.value;
+  document.getElementById('starToDeltaInputs').style.display = type === 'starToDelta' ? 'block' : 'none';
+  document.getElementById('deltaToStarInputs').style.display = type === 'deltaToStar' ? 'block' : 'none';
+});
+document.getElementById('divisionType').addEventListener('change', function() {
+  const type = this.value;
+  document.getElementById('currentDivisionInputs').style.display = type === 'currentDivision' ? 'block' : 'none';
+  document.getElementById('voltageDivisionInputs').style.display = type === 'voltageDivision' ? 'block' : 'none';
+});
+</script>
 <footer>
     <p>Copyright © 2024 ElectroFuse Tech. All rights reserved.</p>
 </footer>
