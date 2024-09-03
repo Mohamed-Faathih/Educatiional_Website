@@ -58,7 +58,8 @@
 
 <h1>Ohm's Law</h1>
 <p>Ohm's Law describes the relationship between voltage (V), current (I), and resistance (R). It states that the current flowing through a conductor between two points is directly proportional to the voltage across the two points and inversely proportional to the resistance between them. The formula is given by:</p>
-<p><strong>V = I × R</strong></p>
+<p><strong>\(V = I \times R\)</strong></p>
+<img src="images/Ohms_Law.jpg" alt="ohms law" style="width: 300px; float: right; height: auto;"/>
 <div class="calculator">
     <label for="voltage">Voltage (V):</label>
     <input type="number" id="voltage">
@@ -74,6 +75,7 @@
 <h1>Resistor</h1>
 <p>A resistor is an electrical component that limits or regulates the flow of electrical current in an electronic circuit. Resistors can also be used to provide a specific voltage for an active device such as a transistor. They are one of the most common components used in electronic circuits. Resistors come in a variety of shapes and sizes, but they all function in the same basic way. The value of a resistor is measured in ohms (Ω) and is usually indicated by a color code on the body of the resistor.</p>
 <p>Use the color bands on a resistor to determine its resistance value. Select the colors for each band to calculate the resistance.</p>
+<img src="images/Resistance.jpg" alt="resistor" style="width: 400px; float: right; height: auto;"/>
 <div class="calculator">
     <label for="band1">Band 1:</label>
     <select id="band1">
@@ -123,8 +125,10 @@
 <hr>
     <section id="inductor">
       <h2>Inductor</h2>
+          <img src="images/Inductor.jpg" alt="inductor" style="width: 400px; float: right;height: auto;"/>
       <p>An inductor is a passive electronic component that stores energy in a magnetic field when current flows through it.</p>
-      <p>The formula for the voltage across an inductor is V = L * dI/dt.</p>
+      <p>The formula for the voltage across an inductor is \(V = L \times \frac {dI}{dt}\).</p>
+
       <div class="calculator">
         <label for="inductance">Inductance (L, in Henrys):</label>
         <input type="number" id="inductance">
@@ -138,8 +142,10 @@
     <!-- Capacitor Section -->
     <section id="capacitor">
       <h2>Capacitor</h2>
+        <img src="images/Capacitor.jpg" alt="capacitor" style="width: 350px; float: right; height: auto;"/>
       <p>A capacitor is a passive electronic component that stores electrical energy in an electric field.</p>
-      <p>Formula: Q = C * V</p>
+      <p>Formula: Q = \(C \times V\)</p>
+
       <div class="calculator">
         <label for="capacitance">Capacitance (C, in Farads):</label>
         <input type="number" id="capacitance">
@@ -153,13 +159,9 @@
     <!-- Joule's Law Section -->
     <section id="joules_law">
       <h2>Joule's Law</h2>
-      <p>Joule's Law describes the relationship between power dissipation, current, and resistance in a resistor.</p>
-      <p>Formula: <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>P</mi> <mo>=</mo> <msup>
-    <mi>I</mi>
-    <mn>2</mn>
-  </msup> <mo>&#x2217;</mo> <mi>R</mi>
-</math></p>
+      <p>This law states that the amount of heat (𝐻) produced in a conductor due to the flow of electric current is directly proportional to the square of the current (I), the resistance of the conductor (𝑅), and the time (t) for which the current flows.</p>
+  <img src="images/Joules_Law.jpg" alt="Joule law" style="width: 300px; float: right; height: auto;"/>
+      <p>Formula: H = I<sup>2</sup> × R × t</p>
 
       <div class="calculator">
         <label for="current_joule">Current (I, in Amperes):</label>
@@ -175,10 +177,11 @@
     <section id="power_factor">
       <h2>Power Factor</h2>
       <p>Power factor is a measure of how effectively electrical power is being used.</p>
+        <img src="images/Power_Factor.jpg" alt="Power Factor" style="width: 500px; float: right; height: auto;"/>
       <p>Formula: <math xmlns="http://www.w3.org/1998/Math/MathML">
   <mi>Power Factor</mi> <mo>=</mo> <mfrac>
-    <mi>P</mi>
-    <mi>S</mi>
+    <mi>P(Real Power)</mi>
+    <mi>S(Apparent Power)</mi>
   </mfrac> <mo>=</mo> <mi>cos</mi>
   <mo>(</mo> <mi>φ</mi> <mo>)</mo>
 </math></p>
@@ -211,7 +214,7 @@
                    \( R_{23} = {(}{R_2 + R_3}{)}+\frac{R_2 \times R_3}{R_1} \);
                          \( R_{31} = {(}{R_3 + R_1}{)}+\frac{R_3 \times R_1}{R_2} \).</p>
    <div style="text-align: center;">
-    <img src="images/star_to_delta.jpg" alt="Star to Delta Circuit Diagram" style="width: 500px; height: auto;"/>
+    <img src="images/star_to_delta.jpg" alt="Star to Delta Circuit Diagram" style="width: 500px; float: right; height: auto;"/>
   </div>
 
     <div class="calculator">
@@ -234,7 +237,7 @@
   \( R_{31} = \frac{R_3 \times R_1}{R_1 + R_2 + R_3} \);
 </p>
      <div style="text-align: center;">
-    <img src="images/delta_to_star.jpg" alt="Delta to Star Circuit Diagram" style="width: 500px; height: auto;"/>
+    <img src="images/delta_to_star.jpg" alt="Delta to Star Circuit Diagram" style="width: 500px; float: right; height: auto;"/>
   </div>
     <div class="calculator">
       <label for="resistance12_delta">Resistance R1 (Ω):</label>
@@ -264,6 +267,7 @@
 
   <div id="currentDivisionInputs">
     <p>Current Division Rule Formula:</p>
+    <img src="images/Current.jpg" alt="current division" style="width: 400px; float: right; height: auto;"/>
     <p>
       \( I_1 = \frac{I \times R_2}{R_1 + R_2} \);
       \( I_2 = \frac{I \times R_1}{R_1 + R_2} \)
@@ -281,7 +285,10 @@
   </div>
 
   <div id="voltageDivisionInputs" style="display: none;">
+      <img src="images/Voltage.jpg" alt="voltage division" style="width: 200px; float: right; height: auto;"/>
     <p>Voltage Division Rule Formula:</p>
+
+
     <p>
       \( V_1 = \frac{V \times R_1}{R_1 + R_2} \);
       \( V_2 = \frac{V \times R_2}{R_1 + R_2} \)
@@ -303,7 +310,7 @@
 <section id="faradays_law">
   <h2>Faraday's Law of Electromagnetic Induction</h2>
   <p>Faraday's Law calculates the induced electromotive force (EMF) in a circuit due to a change in magnetic flux.</p>
-
+<img src="images/Faraday.jpg" alt="faraday law" style="width:400px; float: right; height: auto;"/>
   <div id="faradaysLawInputs">
     <p>Faraday's Law Formula:</p>
     <p>
@@ -332,6 +339,7 @@
 <section id="mmf">
   <h2>Magnetomotive Force (MMF)</h2>
   <p>MMF is a measure of the magnetic potential difference in a magnetic circuit.</p>
+  <img src="images/Mmf.jpg" alt="MMF" style="width: 300px; float: right; height: auto;"/>
   <p>Formula: <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mi>MMF</mi> <mo>=</mo> <mi>H</mi> <mo>&#8290;</mo> <mi>l</mi>
   </math></p>
@@ -349,6 +357,7 @@
 <section id="reluctance">
   <h2>Reluctance</h2>
   <p>Reluctance is a measure of the opposition to the magnetic flux in a magnetic circuit.</p>
+  <img src="images/Reluctance.jpg" alt="Reluctance" style="width: 500px; float: right; height: auto;"/>
   <p>Formula:</p>
   <p>
         \(
@@ -371,6 +380,8 @@
 <section id="amperes_law">
   <h2>Ampere's Law</h2>
   <p>Ampere's Law relates the integrated magnetic field around a closed loop to the electric current passing through the loop.</p>
+  <img src="images/Amperes.jpg" alt="Amperes" style="width: 500px; float: right; height: auto;"/>
+
   <p>Formula: <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mo>&#8747;</mo> <mi>B</mi> <mo>&#8290;</mo> <mi>dl</mi> <mo>=</mo> <mi>&#956;</mi> <mo>&#8290;</mo> <mi>I</mi>
   </math></p>
@@ -390,6 +401,8 @@
 <section id="biot_savart_law">
   <h2>Biot-Savart Law</h2>
   <p>Biot-Savart Law describes the magnetic field produced by a current-carrying conductor.</p>
+  <img src="images/Biot.jpg" alt="Biot Savart" style="width: 450px; float: right; height: auto;"/>
+
   <p>Formula:</p>
   <p>
           \(
@@ -412,8 +425,11 @@
 <hr>
 <!-- Magnetic Permeability -->
 <section id="magnetic_permeability">
+  <img src="images/Permeability.jpg" alt="Permeability" style="width: 225px; float: right; height: auto;"/>
+
   <h2>Magnetic Permeability</h2>
   <p>Magnetic permeability is the measure of how much a material responds to a magnetic field.</p>
+
   <p>Formula: <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mi>μ</mi> <mo>=</mo> <mfrac>
       <mi>B</mi>
@@ -434,6 +450,8 @@
 <section id="magnetic_susceptibility">
   <h2>Magnetic Susceptibility</h2>
   <p>Magnetic susceptibility measures how much a material will become magnetized in an applied magnetic field.</p>
+  <img src="images/Suceptibility.jpg" alt="Suceptibility" style="width: 300px; float: right; height: auto;"/>
+
   <p>Formula:</p>
         <p>
           \(
